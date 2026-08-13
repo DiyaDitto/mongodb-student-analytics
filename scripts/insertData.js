@@ -1,35 +1,32 @@
+require("dotenv").config();
 const { MongoClient } = require("mongodb");
 const fs = require("fs");
 const path = require("path");
 
-const uri = "mongodb://127.0.0.1:27017";
+const uri = process.env.MONGO_URI;
 
-async function insertData() {
+async function run() {
   const client = new MongoClient(uri);
 
   try {
     await client.connect();
-    console.log("Connected to MongoDB");
+    console.log("Connected");
 
-    const db = client.db("college");
-    const collection = db.collection("students");
+    const db = client.db(process.env.DB_NAME);
+    const students = db.collection("students");
 
-    // Read JSON file
     const dataPath = path.join(__dirname, "../data/students.json");
-    const students = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
+    const data = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
 
-    // Clear old data (important for testing)
-    await collection.deleteMany({});
+    await students.deleteMany({});
+    await students.insertMany(data);
 
-    // Insert new data
-    await collection.insertMany(students);
-
-    console.log("✅ Data inserted successfully");
-  } catch (error) {
-    console.error("❌ Error:", error);
+    console.log("✅ Data inserted");
+  } catch (err) {
+    console.error(err);
   } finally {
     await client.close();
   }
 }
 
-insertData();
+run();

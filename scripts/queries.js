@@ -1,37 +1,34 @@
+require("dotenv").config();
 const { MongoClient } = require("mongodb");
 
-const uri = "mongodb://127.0.0.1:27017";
+const uri = process.env.MONGO_URI;
 
-async function runQueries() {
-  console.log("🔥 Script started");
-
+async function run() {
   const client = new MongoClient(uri);
 
   try {
     await client.connect();
-    console.log("✅ Connected to MongoDB");
-
-    const db = client.db("college");
+    const db = client.db(process.env.DB_NAME);
     const students = db.collection("students");
 
-    const all = await students.find().toArray();
-    console.log("Total students:", all.length);
+    console.log("Top Students:");
+    console.log(await students.find().sort({ cgpa: -1 }).limit(5).toArray());
 
-    const topStudents = await students
-      .find()
-      .sort({ cgpa: -1 })
-      .limit(5)
-      .toArray();
+    console.log("CSE Students:");
+    console.log(await students.find({ department: "CSE" }).toArray());
 
-    console.log("\nTop 5 Students:");
-    console.log(topStudents);
+    console.log("High CGPA:");
+    console.log(await students.find({ cgpa: { $gt: 8.5 } }).toArray());
 
-  } catch (error) {
-    console.error("❌ Error:", error);
+    console.log("Age 20–23:");
+    console.log(await students.find({ age: { $gte: 20, $lte: 23 } }).toArray());
+
+    console.log("MongoDB Skill:");
+    console.log(await students.find({ skills: "MongoDB" }).toArray());
+
   } finally {
     await client.close();
-    console.log("🔚 Script finished");
   }
 }
 
-runQueries();
+run();

@@ -59,25 +59,38 @@ It simulates a real-world student database system where insights can be derived 
 ---
 
 ## 📂 Project Structure
+
 mongodb-student-analytics/
 │
+
 ├── data/
+
 │ students.json # Dataset (25–30 students)
 │
+
 ├── scripts/
+
 │ insertData.js # Insert data into MongoDB
+
 │ queries.js # Query operations
+
 │ aggregation.js # Aggregation pipeline
+
 │ indexes.js # Index creation
 │
+
 ├── docs/
+
 │ schema.md # Schema design explanation
+
 │ queries.md # Query explanations
+
 │
-├── screenshots/ # MongoDB Compass screenshots
-│
+
 ├── README.md
+
 ├── package.json
+
 └── .gitignore
 
 

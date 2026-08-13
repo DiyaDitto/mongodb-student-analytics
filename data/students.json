@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Diya",
+    "age": 22,
+    "department": "CSE",
+    "cgpa": 9.2,
+    "skills": ["MongoDB", "Node", "React"],
+    "address": { "city": "Kozhikode", "state": "Kerala" }
+  },
+  {
+    "name": "Arjun",
+    "age": 21,
+    "department": "ECE",
+    "cgpa": 8.4,
+    "skills": ["C++", "DSA"],
+    "address": { "city": "Trivandrum", "state": "Kerala" }
+  },
+  {
+    "name": "Meera",
+    "age": 23,
+    "department": "CSE",
+    "cgpa": 9.5,
+    "skills": ["React", "MongoDB"],
+    "address": { "city": "Kochi", "state": "Kerala" }
+  },
+  {
+    "name": "Rahul",
+    "age": 20,
+    "department": "MECH",
+    "cgpa": 7.8,
+    "skills": ["AutoCAD"],
+    "address": { "city": "Calicut", "state": "Kerala" }
+  },
+  {
+    "name": "Anjali",
+    "age": 22,
+    "department": "EEE",
+    "cgpa": 8.7,
+    "skills": ["Python", "ML"],
+    "address": { "city": "Thrissur", "state": "Kerala" }
+  },
+  {
+    "name": "Kiran",
+    "age": 21,
+    "department": "CSE",
+    "cgpa": 8.9,
+    "skills": ["Java", "Spring"],
+    "address": { "city": "Kannur", "state": "Kerala" }
+  },
+  {
+    "name": "Sneha",
+    "age": 23,
+    "department": "ECE",
+    "cgpa": 9.0,
+    "skills": ["Embedded", "C"],
+    "address": { "city": "Palakkad", "state": "Kerala" }
+  },
+  {
+    "name": "Vishnu",
+    "age": 22,
+    "department": "MECH",
+    "cgpa": 7.5,
+    "skills": ["SolidWorks"],
+    "address": { "city": "Malappuram", "state": "Kerala" }
+  },
+  {
+    "name": "Akhil",
+    "age": 21,
+    "department": "CSE",
+    "cgpa": 8.3,
+    "skills": ["Node", "Express"],
+    "address": { "city": "Kottayam", "state": "Kerala" }
+  },
+  {
+    "name": "Divya",
+    "age": 22,
+    "department": "EEE",
+    "cgpa": 8.8,
+    "skills": ["MATLAB"],
+    "address": { "city": "Alappuzha", "state": "Kerala" }
+  }
+]
